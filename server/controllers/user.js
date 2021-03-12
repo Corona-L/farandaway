@@ -1,6 +1,6 @@
 'use-strict';
 
-const {models} = require('../models');
+const { models } = require('../models');
 const { user, trip, option, invitee } = models;
 
 exports.createUser = async (req, res) => {
