@@ -21,8 +21,6 @@ const modelDefiners = [
 	require('./invitee'),
 	require('./flight'),
 	require('./destination'),
-	// Add more models here...
-	// require('./item'),
 ];
 
 // We define all models according to their files.
