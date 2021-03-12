@@ -1,5 +1,7 @@
 'use-strict';
-const { flight } = require('../models');
+const { models } = require('../models');
+const { flight } = models;
+
 
 exports.createFlight = async (req, res) => {
   const {

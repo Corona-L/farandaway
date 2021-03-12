@@ -1,5 +1,7 @@
-module.exports = (sequelize, DataTypes) => {
-  const Destination = sequelize.define('destination', {
+const { DataTypes } = require('sequelize');
+
+module.exports = (sequelize) => {
+  sequelize.define('destination', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -21,5 +23,4 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
-  return Destination;
-};
+}

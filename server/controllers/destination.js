@@ -1,5 +1,7 @@
 'use-strict';
-const { destination, flight } = require('../models');
+const { models } = require('../models');
+const { destination, flight } = models;
+
 
 const destinationData = require('../destinationMockData.json');
 

@@ -1,6 +1,7 @@
 'use-strict';
 
-const { option } = require('../models');
+const { models } = require('../models')
+const { option } = models;
 
 exports.createOption = async (req, res) => {
   const {

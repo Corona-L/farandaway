@@ -1,5 +1,7 @@
-module.exports = (sequelize, DataTypes) => {
-  const Invitee = sequelize.define('invitee', {
+const { DataTypes } = require('sequelize');
+
+module.exports = (sequelize) => {
+  sequelize.define('invitee', {
     emailAddress: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -9,14 +11,4 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
   });
-
-  Invitee.associate = (model) => {
-    Invitee.belongsTo(model.trip, {
-      foreignKey: {
-        allowNull: false,
-      },
-    });
-  };
-
-  return Invitee;
-};
+}

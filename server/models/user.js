@@ -1,5 +1,9 @@
-module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('user', {
+const { DataTypes } = require('sequelize');
+
+// We export a function that defines the model.
+// This function will automatically receive as parameter the Sequelize connection object.
+module.exports = (sequelize) => {
+  sequelize.define('user', {
     emailAddress: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -17,12 +21,4 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
-
-  User.associate = (model) => {
-    User.hasMany(model.trip);
-    // User.hasOne(model.trip, { as: 'owner' }); //trip - this always needs to be the lowercase name
-    // User.hasMany(model.trip, { as: 'invited' });
-  };
-
-  return User;
-};
+}

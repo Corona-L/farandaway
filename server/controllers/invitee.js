@@ -1,6 +1,6 @@
 'use-strict';
-const { invitee, trip, option } = require('../models');
-const { Op } = require('sequelize');
+const { models } = require('../models');
+const { invitee, trip, option } = models;
 
 exports.addInvitee = async (req, res) => {
   const { emailAddress, userId } = req.body;

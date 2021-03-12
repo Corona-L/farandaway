@@ -1,8 +1,7 @@
-const fs = require('fs');
-const path = require('path');
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 const config = process.env;
+const associations = require('./associations.js');
 
 const sequelize = new Sequelize(
   config.DB_NAME,
@@ -15,29 +14,23 @@ const sequelize = new Sequelize(
   },
 );
 
-const db = {};
+const modelDefiners = [
+	require('./user'),
+	require('./trip'),
+	require('./option'),
+	require('./invitee'),
+	require('./flight'),
+	require('./destination'),
+	// Add more models here...
+	// require('./item'),
+];
 
-fs.readdirSync(__dirname)
-  .filter((file) => {
-    return (
-      file.indexOf('.') !== 0 && file !== 'index.js' && file.slice(-3) === '.js'
-    );
-  })
-  .forEach((file) => {
-    const model = require(path.join(__dirname, file))(
-      sequelize,
-      Sequelize.DataTypes,
-    );
-    db[model.name] = model;
-  });
+// We define all models according to their files.
+for (const modelDefiner of modelDefiners) {
+	modelDefiner(sequelize);
+}
 
-Object.keys(db).forEach((modelName) => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
+// We execute all associations after the models are defined
+associations(sequelize);
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
-module.exports = db;
+module.exports = sequelize;

@@ -1,10 +1,8 @@
 'use strict';
-
 const express = require('express');
 const app = new express();
 const cors = require('cors');
-
-const db = require('./models/index');
+const sequelize = require('./models/index');
 const router = require('./router');
 const PORT = 3000;
 
@@ -18,8 +16,8 @@ app.use(router);
       console.log(`Server running at http://localhost:${PORT} 🚀😍`);
     });
     try {
-      await db.sequelize.authenticate();
-      await db.sequelize.sync();
+      await sequelize.authenticate();
+      await sequelize.sync();
       console.log('Connection to db successful 🗄🔎');
     } catch (error) {
       console.error('Unable to connect to the database:', error);

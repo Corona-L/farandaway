@@ -1,19 +1,15 @@
-module.exports = (sequelize, DataTypes) => {
-  const Trip = sequelize.define('trip', {
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  });
+const { DataTypes } = require('sequelize');
 
-  Trip.associate = (model) => {
-    Trip.hasMany(model.option, { onDelete: 'cascade', hooks: true });
-    Trip.hasMany(model.invitee);
-    Trip.belongsTo(model.user, {
-      foreignKey: {
+module.exports = (sequelize) => {
+  sequelize.define('trip', {
+      title: {
+        type: DataTypes.STRING,
         allowNull: false,
       },
     });
+}
+
+
     // Trip.belongsTo(
     //   model.user,
     //   { as: 'owner' },
@@ -23,7 +19,3 @@ module.exports = (sequelize, DataTypes) => {
     //     },
     //   },
     // );
-  };
-
-  return Trip;
-};

@@ -1,6 +1,7 @@
 'use-strict';
 
-const { trip, option, invitee } = require('../models');
+const { models } = require('../models');
+const { trip, option, invitee } = models;
 
 exports.createTrip = async (req, res) => {
   const { title, options } = req.body;

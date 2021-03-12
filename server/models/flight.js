@@ -1,5 +1,7 @@
-module.exports = (sequelize, DataTypes) => {
-  const Flight = sequelize.define('flight', {
+const { DataTypes } = require('sequelize');
+
+module.exports = (sequelize) => {
+  sequelize.define('flight', {
     origin: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -29,6 +31,4 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
-
-  return Flight;
-};
+}
