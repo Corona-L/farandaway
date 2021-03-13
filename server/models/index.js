@@ -1,4 +1,4 @@
-const { Sequelize } = require('sequelize');
+import { Sequelize } from 'sequelize';
 require('dotenv').config();
 const config = process.env;
 const associations = require('./associations.js');
@@ -15,17 +15,17 @@ const sequelize = new Sequelize(
 );
 
 const modelDefiners = [
-	require('./user'),
-	require('./trip'),
-	require('./option'),
-	require('./invitee'),
-	require('./flight'),
-	require('./destination'),
+  require('./user'),
+  require('./trip'),
+  require('./option'),
+  require('./invitee'),
+  require('./flight'),
+  require('./destination'),
 ];
 
 // We define all models according to their files.
 for (const modelDefiner of modelDefiners) {
-	modelDefiner(sequelize);
+  modelDefiner(sequelize);
 }
 
 // We execute all associations after the models are defined

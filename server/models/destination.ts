@@ -1,12 +1,12 @@
-const { Sequelize, DataTypes, Optional, Model } = require('sequelize');
+import { Sequelize, DataTypes, Optional, Model } from 'sequelize';
 
 interface DestinationAttributes {
-  id: number;
+  id?: number;
   name: string;
   country: string;
   emoji: string;
   timezone: string;
-  climate: object[];
+  climate: object[]; // need to define interface for climate json
 }
 
 interface DestinationCreationAttributes
@@ -17,7 +17,7 @@ interface DestinationInstance
     DestinationAttributes {}
 
 module.exports = (sequelize: typeof Sequelize) => {
-  sequelize.define<DestinationInstance>('destination', {
+  sequelize.prototype.define<DestinationInstance>('destination', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
