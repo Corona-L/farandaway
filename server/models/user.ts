@@ -1,5 +1,5 @@
 import { Sequelize, DataTypes } from 'sequelize';
-import { UserInstance } from './interfaces';
+import { UserInstance } from './interfaces/index';
 
 
 

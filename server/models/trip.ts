@@ -1,5 +1,5 @@
 import { Sequelize, DataTypes } from 'sequelize';
-import { TripInstance } from './interfaces';
+import { TripInstance } from './interfaces/index';
 
 
 module.exports = (sequelize:Sequelize) => {

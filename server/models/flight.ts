@@ -1,5 +1,5 @@
 import { Sequelize, DataTypes, Optional, Model } from 'sequelize';
-import { FlightInstance } from './interfaces';
+import { FlightInstance } from './interfaces/index';
 
 module.exports = (sequelize:Sequelize) => {
   sequelize.define<FlightInstance>('flight', {

@@ -28,4 +28,4 @@ function associations (sequelize: Sequelize) {
   });
 }
 
-module.exports = associations;
+export default associations;

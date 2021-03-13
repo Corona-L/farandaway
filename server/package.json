@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "server-dependancies",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "index.ts"
@@ -21,7 +21,8 @@
     "fs": "0.0.1-security",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.5.0"
+    "sequelize": "^6.5.0",
+    "ts-node": "^9.1.1"
   },
   "devDependencies": {
     "typescript": "^4.2.3"

@@ -1,5 +1,5 @@
 import { Sequelize, DataTypes } from 'sequelize';
-import { OptionInstance } from './interfaces';
+import { OptionInstance } from './interfaces/index';
 
 module.exports = (sequelize:Sequelize) => {
   sequelize.define<OptionInstance>('option', {
@@ -34,7 +34,7 @@ module.exports = (sequelize:Sequelize) => {
       isChosen: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        default: false,
+        defaultValue: false,
       },
     });
 

@@ -1,17 +1,20 @@
-import { Sequelize } from 'sequelize';
 require('dotenv').config();
 const config = process.env;
-const associations = require('./associations.js');
+import { Sequelize } from 'sequelize';
+import associations from './associations';
 
-const sequelize = new Sequelize(
-  config.DB_NAME,
-  config.DB_USERNAME,
-  config.DB_PASSWORD,
-  {
-    host: config.DB_HOST,
-    dialect: config.DB_DIALECT,
-  },
-);
+
+if (typeof config.DATABASE_URL !== 'string') throw new Error('database url missing');
+const sequelize = new Sequelize(config.DATABASE_URL);
+
+
+  // config.DB_NAME,
+  // config.DB_USERNAME,
+  // config.DB_PASSWORD,
+  // {
+  //   host: config.DB_HOST,
+  //   dialect: config.DB_DIALECT,
+  // },
 
 const modelDefiners = [
   require('./user'),
@@ -30,4 +33,4 @@ for (const modelDefiner of modelDefiners) {
 // We execute all associations after the models are defined
 associations(sequelize);
 
-module.exports = sequelize;
+export default sequelize;

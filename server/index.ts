@@ -1,8 +1,8 @@
 'use strict';
-const express = require('express');
-const app = new express();
+import express from 'express';
+const app = express();
 const cors = require('cors');
-const sequelize = require('./models/index');
+import sequelize from './models/index';
 const router = require('./router');
 const PORT = 3000;
 

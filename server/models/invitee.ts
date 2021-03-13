@@ -1,5 +1,5 @@
 import { Sequelize, Model, Optional, DataTypes } from 'sequelize';
-import { InviteeInstance } from './interfaces';
+import { InviteeInstance } from './interfaces/index';
 
 module.exports = (sequelize:Sequelize) => {
   sequelize.define<InviteeInstance>('invitee', {
