@@ -1,7 +1,25 @@
-const { DataTypes } = require('sequelize');
+import { Sequelize, DataTypes, Optional, Model } from 'sequelize';
 
-module.exports = (sequelize) => {
-  sequelize.define('flight', {
+interface FlightAttributes {
+  id?: number;
+  origin: string;
+  destination: string;
+  outbound: Date;
+  inbound: Date;
+  minPrice: number;
+  carrier: string;
+  currency: string;
+}
+
+interface FlightCreationAttributes 
+  extends Optional<FlightAttributes, 'id'> {}
+
+interface FlightInstance 
+  extends Model<FlightAttributes, FlightCreationAttributes>,
+    FlightAttributes {}
+
+module.exports = (sequelize: typeof Sequelize) => {
+  sequelize.prototype.define('flight', {
     origin: {
       type: DataTypes.STRING,
       allowNull: false,
