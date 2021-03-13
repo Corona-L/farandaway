@@ -4,7 +4,7 @@ const { models } = require('../models');
 const { destination, flight } = models;
 
 
-const destinationData = require('../destinationMockData.json');
+// const destinationData = require('../destinationMockData.json');
 
 exports.createDestination = async (req: Request, res: Response) => {
   const { name, country, emoji, timezone, climate } = req.body;
