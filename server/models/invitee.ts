@@ -13,8 +13,8 @@ interface InviteeInstance
   extends Model<InviteeAttributes, IniviteeCreationAttributes>,
     InviteeAttributes {}
 
-module.exports = (sequelize: typeof Sequelize) => {
-  sequelize.prototype.define<InviteeInstance>('invitee', {
+module.exports = (sequelize:Sequelize) => {
+  sequelize.define<InviteeInstance>('invitee', {
     emailAddress: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -1,17 +1,9 @@
-import { Sequelize, DataTypes, Optional, Model } from 'sequelize';
+import { Sequelize, DataTypes } from 'sequelize';
+import { TripInstance } from './interfaces';
 
-interface TripAttributes {
-  id?: number;
-  title: string;
-}
 
-interface TripCreationAttributes extends Optional<TripAttributes, 'id'> {}
-
-interface TripInstance extends Model<TripAttributes, TripCreationAttributes>,
-TripAttributes {}
-
-module.exports = (sequelize:typeof Sequelize) => {
-  sequelize.prototype.define<TripInstance>('trip', {
+module.exports = (sequelize:Sequelize) => {
+  sequelize.define<TripInstance>('trip', {
       title: {
         type: DataTypes.STRING,
         allowNull: false,

@@ -11,15 +11,15 @@ interface FlightAttributes {
   currency: string;
 }
 
-interface FlightCreationAttributes 
+interface FlightCreationAttributes
   extends Optional<FlightAttributes, 'id'> {}
 
-interface FlightInstance 
+interface FlightInstance
   extends Model<FlightAttributes, FlightCreationAttributes>,
     FlightAttributes {}
 
-module.exports = (sequelize: typeof Sequelize) => {
-  sequelize.prototype.define<FlightInstance>('flight', {
+module.exports = (sequelize:Sequelize) => {
+  sequelize.define<FlightInstance>('flight', {
     origin: {
       type: DataTypes.STRING,
       allowNull: false,

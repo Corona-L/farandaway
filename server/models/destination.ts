@@ -12,12 +12,12 @@ interface DestinationAttributes {
 interface DestinationCreationAttributes
   extends Optional<DestinationAttributes, 'id'> {}
 
-interface DestinationInstance 
+interface DestinationInstance
   extends Model<DestinationAttributes, DestinationCreationAttributes>,
     DestinationAttributes {}
 
-module.exports = (sequelize: typeof Sequelize) => {
-  sequelize.prototype.define<DestinationInstance>('destination', {
+module.exports = (sequelize:Sequelize) => {
+  sequelize.define<DestinationInstance>('destination', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
