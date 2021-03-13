@@ -1,9 +1,10 @@
 'use-strict';
+import {Request, Response} from 'express';
 const { models } = require('../models');
 const { flight } = models;
 
 
-exports.createFlight = async (req, res) => {
+exports.createFlight = async (req: Request, res: Response) => {
   const {
     origin,
     destination,
@@ -32,7 +33,7 @@ exports.createFlight = async (req, res) => {
   }
 };
 
-exports.getFlights = async (req, res) => {
+exports.getFlights = async (req: Request, res: Response) => {
   try {
     const flights = await flight.findAll();
     res.status(200);

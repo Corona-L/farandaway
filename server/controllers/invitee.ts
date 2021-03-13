@@ -1,8 +1,9 @@
 'use-strict';
+import {Request, Response} from 'express';
 const { models } = require('../models');
 const { invitee, trip, option } = models;
 
-exports.addInvitee = async (req, res) => {
+exports.addInvitee = async (req: Request, res: Response) => {
   const { emailAddress, userId } = req.body;
   const { tripId } = req.params;
   try {
@@ -19,9 +20,9 @@ exports.addInvitee = async (req, res) => {
   }
 };
 
-exports.getInviteeTrips = async (req, res) => {
+exports.getInviteeTrips = async (req: Request, res: Response) => {
   const { userId } = req.params;
-  const userTrips = [];
+  const userTrips: any[] = [];
   try {
     const inviteeTrips = await trip.findAll({
       include: [
@@ -34,16 +35,17 @@ exports.getInviteeTrips = async (req, res) => {
         { model: option },
       ],
     });
-    inviteeTrips.map((trip) => {
-      const tripId = trip.id;
-      const selectedTrip = () => {
-        trip.findAll({
-          where: {
-            id: tripId,
-          },
-          include: [{ model: option }],
-        });
-      };
+    inviteeTrips.map((trip: any[]) => {
+      // const tripId = trip.id;
+      // value is never read
+      // const selectedTrip = () => {
+      //   trip.findAll({
+      //     where: {
+      //       id: tripId,
+      //     },
+      //     include: [{ model: option }],
+      //   });
+      // };
       userTrips.push(trip);
     });
     res.status(200);
