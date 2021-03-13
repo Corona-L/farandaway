@@ -1,4 +1,4 @@
-import { Sequelize, DataTypes, Model, Optional } from 'sequelize';
+import { Model, Optional } from 'sequelize';
 
 // Destination interfaces
 interface DestinationAttributes {

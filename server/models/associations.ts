@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize';
 
 function associations (sequelize: Sequelize) {
 	const { trip, user, option, invitee } = sequelize.models;
-  
+
   // User-Trip associations
   user.hasMany(trip);
   trip.belongsTo(user, {
