@@ -1,5 +1,47 @@
 import { Model, Optional } from 'sequelize';
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Destination interfaces
 interface DestinationAttributes {
   id?: number;
