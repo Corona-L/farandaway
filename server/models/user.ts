@@ -1,8 +1,16 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, Sequelize } = require('sequelize');
+
+interface UserAttributes {
+  id: number;
+  firstName: string;
+  lastName: string;
+  password: string;
+}
+
 
 // We export a function that defines the model.
 // This function will automatically receive as parameter the Sequelize connection object.
-module.exports = (sequelize) => {
+module.exports = (sequelize:typeof Sequelize) => {
   sequelize.define('user', {
     emailAddress: {
       type: DataTypes.STRING,
