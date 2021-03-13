@@ -19,7 +19,7 @@ interface FlightInstance
     FlightAttributes {}
 
 module.exports = (sequelize: typeof Sequelize) => {
-  sequelize.prototype.define('flight', {
+  sequelize.prototype.define<FlightInstance>('flight', {
     origin: {
       type: DataTypes.STRING,
       allowNull: false,
