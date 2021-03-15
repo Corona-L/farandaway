@@ -9,10 +9,10 @@ import { UserInfoService } from '../user-info.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  @Input() loggedIn: boolean | undefined;
+  @Input() loggedIn: boolean | undefined; // Not used
 
   userId: number | undefined;
-  user: User | undefined;
+  user: User | undefined; // Not used
 
   constructor(private userInfo: UserInfoService) {}
 
