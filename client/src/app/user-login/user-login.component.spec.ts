@@ -12,7 +12,7 @@ const apiClientServiceStub = {
   userLogin: () => {
     return 'apiClientService.userLogin has been called'
   }
-}
+};
 
 describe('UserLoginComponent', () => {
   let component: UserLoginComponent;
@@ -54,14 +54,9 @@ describe('UserLoginComponent', () => {
   it('should render the correct login inputs', () => {
     const emailInput = de.query(By.css('input[name=emailAddress]'));
     const nameInput = de.query(By.css('input[name=password]'));
-    console.log('EMAILEMAIL: ', emailInput);
     expect(emailInput).toBeTruthy();
     expect(nameInput).toBeTruthy();
   });
-
-  // By.css('.classname')          // get by class name
-  // By.css('input[type=radio]')   // get input by type radio
-  // By.css('.parent .child')      // get child who has a parent
 
   // Test the button is correctly rendered text = 'Log in'
   it('should render the login button', () => {
