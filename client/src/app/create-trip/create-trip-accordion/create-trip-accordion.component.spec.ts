@@ -19,6 +19,7 @@ describe('CreateTripAccordionComponent', () => {
     fixture.detectChanges();
   });
 
+  // Angular has already tested how their mat-expansion components work
   it('should create', () => {
     expect(component).toBeTruthy();
   });

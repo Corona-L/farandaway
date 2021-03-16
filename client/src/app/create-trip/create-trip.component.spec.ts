@@ -19,7 +19,10 @@ describe('CreateTripComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  // If trip title it should render create-trip-overview
+  // Else should render create-trip-initial-info
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });
