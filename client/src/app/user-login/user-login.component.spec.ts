@@ -54,7 +54,6 @@ describe('UserLoginComponent', () => {
   it('should render the correct login inputs', () => {
     const emailInput = de.query(By.css('input[name=emailAddress]'));
     const nameInput = de.query(By.css('input[name=password]'));
-    console.log('EMAILEMAIL: ', emailInput);
     expect(emailInput).toBeTruthy();
     expect(nameInput).toBeTruthy();
   });

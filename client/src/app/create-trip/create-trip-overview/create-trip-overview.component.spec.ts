@@ -44,5 +44,7 @@ describe('CreateTripOverviewComponent', () => {
     const button = de.query(By.css('button'));
     expect(button.nativeElement.innerText).toBe('Create Trip');
   });
+
+  // Could also test postTrip is called on create trip button clicked
   
 });
