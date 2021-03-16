@@ -11,7 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const apiClientServiceStub = {
   userLogin: () => {
-    return 'apiClientService.userLogin has been called'
+    return {
+      subscribe: () => 'apiClientService.userLogin has been called'
+    }
   }
 };
 
@@ -23,11 +25,11 @@ describe('UserLoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserLoginComponent ],
+      declarations: [UserLoginComponent],
       imports: [HttpClientModule, RouterTestingModule, FormsModule, ReactiveFormsModule],
-      providers: [{provide: ApiClientService, useValue: apiClientServiceStub }]
+      providers: [{ provide: ApiClientService, useValue: apiClientServiceStub }]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -71,11 +73,10 @@ describe('UserLoginComponent', () => {
     expect(link.nativeElement.innerText).toContain('Don\'t have an account?');
   });
 
-  // it('should call userLogin', () => {
-  //     spyOn(component, 'userLogin');
-  //     const form = de.nativeElement.querySelector('form');
-  //     form.triggerEventHandler('submit', component.userLogin);
-  //     fixture.detectChanges();
-  //     expect(component.userLogin).toHaveBeenCalled();
-  //   });
+  it('should call userLogin', () => {
+    spyOn(apiClientService, 'userLogin').and.callThrough();
+    component.userLogin();
+    fixture.detectChanges();
+    expect(apiClientService.userLogin).toHaveBeenCalled();
+  });
 });

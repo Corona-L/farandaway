@@ -4,7 +4,6 @@ import { ApiClientService } from '../../api-client.service';
 import { TripPollVotingComponent } from './trip-poll-voting.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
-import { By } from '@angular/platform-browser';
 
 const apiClientServiceStub = {
   vote: () => {

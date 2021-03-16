@@ -13,13 +13,13 @@ export class UserLoginComponent implements OnInit {
     private apiClientService: ApiClientService,
     private router: Router,
     private userInfo: UserInfoService,
-  ) {}
+  ) { }
 
   emailAddress: string = '';
 
   password: string = '';
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   userLogin() {
     this.apiClientService
