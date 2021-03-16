@@ -66,6 +66,7 @@ describe('CreateTripOptionComponent', () => {
     const form = de.query(By.css('form'));
     expect(form).toBeTruthy();
   });
+  
   // No trip option or clicked
   // p with 'Add a variant to your trip'
   it('should render add variant p tag', () => {
