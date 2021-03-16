@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiClientService } from '../api-client.service';
 import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 const apiClientServiceStub = {
   userSignUp: () => {
@@ -39,6 +40,16 @@ describe('UserSignupComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have a h1 tag', () => {
+    const title = de.query(By.css('h1'));
+    expect(title).toBeTruthy();
+  });
+
+  it('should render a sign up button', () => {
+    const button = de.query(By.css('button'));
+    expect(button.nativeElement.innerText).toBe('Sign up');
   });
 
   it('userSignup should call API client service', () => {

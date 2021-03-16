@@ -1,10 +1,10 @@
-import { HttpClientModule } from '@angular/common/http';
-import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { RouterTestingModule } from '@angular/router/testing';
-import { ApiClientService } from 'src/app/api-client.service';
 import { CreateTripOverviewComponent } from './create-trip-overview.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiClientService } from 'src/app/api-client.service';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 const apiClientServiceStub = {
   postTrip: () => {
