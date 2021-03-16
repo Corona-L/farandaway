@@ -39,7 +39,7 @@ describe('CreateTripOptionComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
+
   // With tripOption
   // p with class trip_option_label_small
   it('if tripOption: should render p element', () => {
@@ -48,7 +48,7 @@ describe('CreateTripOptionComponent', () => {
     const p = de.query(By.css('.trip_option_label_small'));
     expect(p).toBeTruthy();
   });
-  
+
   // h2 element
   it('if tripOption: should render h2 element', () => {
     component.tripOption = mocks.tripOption;
@@ -66,7 +66,7 @@ describe('CreateTripOptionComponent', () => {
     const form = de.query(By.css('form'));
     expect(form).toBeTruthy();
   });
-  
+
   // No trip option or clicked
   // p with 'Add a variant to your trip'
   it('should render add variant p tag', () => {
@@ -82,6 +82,13 @@ describe('CreateTripOptionComponent', () => {
     fixture.detectChanges();
     const button = de.query(By.css('button'));
     expect(button.nativeElement.innerText).toBe('+');
+  });
+
+  it('when clicked button should call btnClicked', () => {
+    component.clicked = false;
+    component.btnClicked();
+    fixture.detectChanges();
+    expect(component.clicked).toBeTruthy();
   });
 
 });

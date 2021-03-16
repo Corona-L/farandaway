@@ -29,8 +29,8 @@ export class CreateTripOverviewComponent implements OnInit {
 
   postTrip() {
     const trip = { title: this.tripTitle, options: this.tripOptions };
-    this.apiClientService.postTrip(trip).subscribe((created) => {
-      const tripId = created.id;
+    this.apiClientService.postTrip(trip).subscribe(() => {
+      // const tripId = created.id;
       const userId = this.userInfoService.getUserId();
       this.router.navigate([`/users/${userId}`]);
     });
