@@ -47,6 +47,11 @@ describe('UserSignupComponent', () => {
     expect(title).toBeTruthy();
   });
 
+  it('should render four input fields', () => {
+    const textInput = de.query(By.css('.text_input_large'));
+    expect(textInput).toBeTruthy();
+  });
+
   it('should render a sign up button', () => {
     const button = de.query(By.css('button'));
     expect(button.nativeElement.innerText).toBe('Sign up');
