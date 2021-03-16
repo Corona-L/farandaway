@@ -19,19 +19,6 @@ describe('UserDashboardComponent', () => {
       .compileComponents();
   });
 
-  const mocks = {
-    tripOption: {
-      title: 'string',
-      destination: 'string',
-      startDate: '2011-10-10T14:48:00',
-      nights: 1,
-      budgetRangeMin: 1,
-      budgetRangeMax: 1,
-      votes: 1,
-      isChosen: true,
-    }
-  };
-
   beforeEach(() => {
     fixture = TestBed.createComponent(UserDashboardComponent);
     component = fixture.componentInstance;
@@ -58,7 +45,6 @@ describe('UserDashboardComponent', () => {
     expect(h1).toBeTruthy();
     expect(h1.nativeElement.innerText).toContain('Hello');
   });
-
 
   it('should have a p tag that greets user', () => {
     const p = de.query(By.css('p'));
