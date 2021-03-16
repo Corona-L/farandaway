@@ -3,18 +3,28 @@ import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import { ApiClientService } from 'src/app/api-client.service';
 import { CreateTripOverviewComponent } from './create-trip-overview.component';
+
+const apiClientServiceStub = {
+  postTrip: () => {
+    return {
+      subscribe: () => 'trip posted'
+    }
+  }
+};
 
 describe('CreateTripOverviewComponent', () => {
   let component: CreateTripOverviewComponent;
   let fixture: ComponentFixture<CreateTripOverviewComponent>;
   let de: DebugElement;
+  let apiClientService: ApiClientService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CreateTripOverviewComponent ],
       imports: [HttpClientModule, RouterTestingModule],
+      providers: [{ provide: ApiClientService, useValue: apiClientServiceStub }]
     })
     .compileComponents();
   });
@@ -23,6 +33,7 @@ describe('CreateTripOverviewComponent', () => {
     fixture = TestBed.createComponent(CreateTripOverviewComponent);
     component = fixture.componentInstance;
     de = fixture.debugElement;
+    apiClientService = de.injector.get(ApiClientService);
     fixture.detectChanges();
   });
 
@@ -45,6 +56,18 @@ describe('CreateTripOverviewComponent', () => {
     expect(button.nativeElement.innerText).toBe('Create Trip');
   });
 
-  // Could also test postTrip is called on create trip button clicked
-  
+  it('button click should trigger posttrip function', () => {
+    spyOn(component, 'postTrip');
+    const button = de.nativeElement.querySelector('button');
+    button.click();
+    fixture.detectChanges;
+    expect(component.postTrip).toHaveBeenCalled();
+  });
+
+  it('posttrip function should trigger API call', () => {
+    spyOn(apiClientService, 'postTrip').and.callThrough();
+    component.postTrip();
+    fixture.detectChanges();
+    expect(apiClientService.postTrip).toHaveBeenCalledTimes(1);
+  });
 });
