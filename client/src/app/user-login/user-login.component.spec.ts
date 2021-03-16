@@ -7,6 +7,7 @@ import { UserLoginComponent } from './user-login.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const apiClientServiceStub = {
   userLogin: () => {
@@ -23,7 +24,7 @@ describe('UserLoginComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ UserLoginComponent ],
-      imports: [HttpClientModule, RouterTestingModule],
+      imports: [HttpClientModule, RouterTestingModule, FormsModule, ReactiveFormsModule],
       providers: [{provide: ApiClientService, useValue: apiClientServiceStub }]
     })
     .compileComponents();
@@ -71,9 +72,10 @@ describe('UserLoginComponent', () => {
   });
 
   // it('should call userLogin', () => {
-    //   // We need to pass email and password to userLogin
-
-    //   spyOn(apiClientService, 'userLogin').and.callThrough();
-    //   const form =
-    // });
+  //     spyOn(component, 'userLogin');
+  //     const form = de.nativeElement.querySelector('form');
+  //     form.triggerEventHandler('submit', component.userLogin);
+  //     fixture.detectChanges();
+  //     expect(component.userLogin).toHaveBeenCalled();
+  //   });
 });

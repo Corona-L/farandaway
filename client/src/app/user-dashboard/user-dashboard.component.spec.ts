@@ -13,17 +13,43 @@ describe('UserDashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserDashboardComponent ],
+      declarations: [UserDashboardComponent],
       imports: [HttpClientModule, RouterTestingModule],
     })
-    .compileComponents();
+      .compileComponents();
   });
+
+  const mocks = {
+    tripOption: {
+      title: 'string',
+      destination: 'string',
+      startDate: '2011-10-10T14:48:00',
+      nights: 1,
+      budgetRangeMin: 1,
+      budgetRangeMax: 1,
+      votes: 1,
+      isChosen: true,
+    }
+  };
 
   beforeEach(() => {
     fixture = TestBed.createComponent(UserDashboardComponent);
     component = fixture.componentInstance;
     de = fixture.debugElement;
-    component.user = {emailAddress: 'corona', firstName: 'corona', lastName: 'corona', password: '123'};
+    component.user = { emailAddress: 'corona', firstName: 'corona', lastName: 'corona', password: '123' };
+    component.trips = [{
+      title: 'Summer holiday',
+      options: [{
+        title: 'string',
+        destination: 'string',
+        startDate: '2011-10-10T14:48:00',
+        nights: 1,
+        budgetRangeMin: 1,
+        budgetRangeMax: 1,
+        votes: 1,
+        isChosen: true,
+      }]
+    }];
     fixture.detectChanges();
   });
 
@@ -44,6 +70,22 @@ describe('UserDashboardComponent', () => {
     const button = de.query(By.css('button'));
     expect(button.nativeElement.innerText).toContain('Create trip');
   });
+
+  it('should render trip title when user has saved trips', () => {
+    const h4 = de.query(By.css('h4'));
+    if (component.trips === undefined) throw new Error('no trips');
+    expect(h4.nativeElement.innerText).toContain(component.trips[0].title);
+  });
+
+  it('should render user trips block correctly', () => {
+    const sendButton = de.query(By.css('.btn_send'));
+    const infoButton = de.query(By.css('.dashboard_more_info'));
+    const resultsButton = de.query(By.css('.dashboard_results'));
+    expect(sendButton).toBeTruthy();
+    expect(infoButton.nativeElement.innerText).toBe('More info');
+    expect(resultsButton.nativeElement.innerText).toBe('Results');
+  });
+
 
 
 
