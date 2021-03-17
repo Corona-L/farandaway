@@ -56,7 +56,6 @@ describe('UserSignupComponent', () => {
     const lastName = de.query(By.css('input[name=lastName]'));
     const passwordInput = de.query(By.css('input[name=password]'));
     expect(emailInput && firstName && lastName && passwordInput).toBeTruthy();
-
   });
 
   it('should render a sign up button', () => {

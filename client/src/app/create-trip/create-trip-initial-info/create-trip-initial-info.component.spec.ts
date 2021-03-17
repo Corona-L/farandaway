@@ -39,7 +39,7 @@ describe('CreateTripInitialInfoComponent', () => {
     expect(p.nativeElement.innerText).toContain('First thing\'s first');
   });
 
-  // Render form and inputs 
+  // Render form and inputs
   it('should render add trip info form', () => {
     const form = de.query(By.css('form'));
     expect(form).toBeTruthy();
@@ -54,6 +54,14 @@ describe('CreateTripInitialInfoComponent', () => {
   it('should render get started button', () => {
     const button = de.query(By.css('button'));
     expect(button.nativeElement.innerText).toBe('Get started');
+  });
+
+  it('addTripInfo should be called on click', () => {
+    spyOn(component, 'addTripInfo');
+    const form = fixture.debugElement.query(By.css('form'));
+    form.triggerEventHandler('submit', null);
+    fixture.detectChanges();
+    expect(component.addTripInfo).toHaveBeenCalled();
   });
 
 });
