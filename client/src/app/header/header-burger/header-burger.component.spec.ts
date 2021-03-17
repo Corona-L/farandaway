@@ -3,7 +3,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { DebugElement } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
-import { By } from '@angular/platform-browser';
 
 import { HeaderBurgerComponent } from './header-burger.component';
 
