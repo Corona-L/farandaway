@@ -47,9 +47,16 @@ describe('UserSignupComponent', () => {
     expect(title).toBeTruthy();
   });
 
+
   it('should render four input fields', () => {
-    const textInput = de.query(By.css('.text_input_large'));
-    expect(textInput).toBeTruthy();
+    const form = de.query(By.css('form'));
+    expect(form).toBeTruthy();
+    const emailInput = de.query(By.css('input[name=emailAddress]'));
+    const firstName = de.query(By.css('input[name=firstName]'));
+    const lastName = de.query(By.css('input[name=lastName]'));
+    const passwordInput = de.query(By.css('input[name=password]'));
+    expect(emailInput && firstName && lastName && passwordInput).toBeTruthy();
+
   });
 
   it('should render a sign up button', () => {
