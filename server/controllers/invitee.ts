@@ -3,7 +3,7 @@ import {Request, Response} from 'express';
 const { models } = require('../models');
 const { invitee, trip, option } = models;
 
-exports.addInvitee = async (req: Request, res: Response) => {
+exports.addInvitee = async (req: Request, res: Response): Promise<void> => {
   const { emailAddress, userId } = req.body;
   const { tripId } = req.params;
   try {
@@ -20,7 +20,7 @@ exports.addInvitee = async (req: Request, res: Response) => {
   }
 };
 
-exports.getInviteeTrips = async (req: Request, res: Response) => {
+exports.getInviteeTrips = async (req: Request, res: Response): Promise<void> => {
   const { userId } = req.params;
   const userTrips: any[] = [];
   try {

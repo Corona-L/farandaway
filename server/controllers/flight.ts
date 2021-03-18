@@ -4,7 +4,7 @@ const { models } = require('../models');
 const { flight } = models;
 
 
-exports.createFlight = async (req: Request, res: Response) => {
+exports.createFlight = async (req: Request, res: Response): Promise<void> => {
   const {
     origin,
     destination,
@@ -33,7 +33,7 @@ exports.createFlight = async (req: Request, res: Response) => {
   }
 };
 
-exports.getFlights = async (req: Request, res: Response) => {
+exports.getFlights = async (req: Request, res: Response): Promise<void> => {
   try {
     const flights = await flight.findAll();
     res.status(200);

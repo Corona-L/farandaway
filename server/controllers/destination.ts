@@ -6,7 +6,7 @@ const { destination, flight } = models;
 
 // const destinationData = require('../destinationMockData.json');
 
-exports.createDestination = async (req: Request, res: Response) => {
+exports.createDestination = async (req: Request, res: Response): Promise<void> => {
   const { name, country, emoji, timezone, climate } = req.body;
   try {
     const newDestination = await destination.create({
@@ -24,7 +24,7 @@ exports.createDestination = async (req: Request, res: Response) => {
   }
 };
 
-exports.getDestination = async (req: Request, res: Response) => {
+exports.getDestination = async (req: Request, res: Response): Promise<void> => {
   const { destinationName, startDate } = req.params;
   // const month = +startDate.split('-')[1];
   const requestedInfo: string[]= [];
